@@ -1,0 +1,16 @@
+{
+  "name": "newsheadline",
+  "version": "0.0.1",
+  "homepage": "https://github.com/uehondor/newsheadline.git",
+  "authors": [
+    "Uyi Ehondor"
+  ],
+  "description": "Headline news from top vendors",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+      "angular": "1.2.20",
+      "bootstrap": "3.1.1",
+      "fontawesome": "4.1.0"
+  }
+}

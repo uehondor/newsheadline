@@ -1,0 +1,4 @@
+{
+  "directory" : "frontend/vendor",
+  "tmp": "/tmp/bower"
+}

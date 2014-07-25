@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}News Headlines{% endblock %}
+
+{% block content %}
+    <div ng-controller="HeadlinesController">
+        <div ng-repeat="headline in headlines">
+          <h2 ng-bind="headline.title"><h2>
+          <h5 ng-bind="headline.description"></h5>
+        </div>
+    </div>
+{% endblock %}
