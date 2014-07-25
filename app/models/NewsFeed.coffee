@@ -3,14 +3,13 @@ FeedParser = require 'feedparser'
 http = require 'http'
 
 class NewsFeed
-  constructor: ()->
-
-  list: (url)->
+  constructor: (@name)->
+  list: (url, maxFeeds)->
     feedMeta = null
     items = []
     deferred = q.defer()
 
-    http.get url, (res)->
+    http.get url, (res)=>
       res.pipe new FeedParser {}
 
       .on 'meta', (meta)->
@@ -21,16 +20,21 @@ class NewsFeed
         item = null
 
         while item = stream.read()
+          if maxFeeds == 0
+            break
+
           items.push
             title: item.title
             description: item.description
             url: item.link
-            datePublished: item.pubDate
+            datePublished: item.pubDate.toISOString()
             image: item.image
 
-      .on 'end', ->
+          maxFeeds--
+
+      .on 'end', =>
         deferred.resolve
-          name: feedMeta.title,
+          name: @name,
           website: feedMeta.link
           items: items
 

@@ -6,7 +6,7 @@ exports.list = (maxPerFeed = 10)->
   deferred = q.defer()
   news = []
 
-  q.all [ bbcNewsFeed.list(), skyNewsFeed.list() ]
+  q.all [ bbcNewsFeed.list(maxPerFeed), skyNewsFeed.list(maxPerFeed) ]
   .then (feeds)->
     for feed in feeds
       news.push updateItemWithFeedInfo(feed, item) for item in feed.items
@@ -17,7 +17,4 @@ exports.list = (maxPerFeed = 10)->
 updateItemWithFeedInfo = (feed, item)->
   item.source = feed.name
   item.website = feed.website
-
   return item
-
-exports.list()

@@ -1,10 +1,10 @@
 {
-    "title": "{{{ headline.title | raw }}}",
-    "description": "{{{ headline.description }}}",
+    "title": {{{ headline.title | raw | json }}},
+    "description": {{{ headline.description | raw | json }}},
     "url": "{{{ headline.url }}}",
     "image": "{{{ headline.image.url }}}",
     "image": "{{{ headline.image.url }}}",
-    "datePublished": "{{{ headline.dateTime }}}",
+    "datePublished": "{{{ headline.datePublished }}}",
     "source": "{{{ headline.source }}}",
     "website": "{{{ headline.website }}}"
 }
