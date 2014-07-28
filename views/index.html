@@ -4,19 +4,23 @@
 
 {% block content %}
     <div class="container" ng-controller="HeadlinesController">
-        <div class="row" ng-repeat="headline in headlines">
-            <div class="col-md-12">
-                <h3><a href="{{headline.url}}" ng-bind="headline.title"></a></h3>
+        <div class="row" ng-repeat="headline in headlines | orderBy:'-datePublished':reverse | filter:filterText">
+            <div class="col-md-1">
+                <span>
+                  <h3>
+                    <a href class="thumbnail"><img src="{{ headline.image }}"></a>
+                  </h3>
+                </span>
+                <span class="small label label-default">{{headline.source}}</span>
             </div>
             <div class="col-md-10">
+                <h3>
+                    <a href="{{headline.url}}" ng-bind="headline.title"></a>
+                </h3>
                 <p>
-                    <span class="col-md-1">
-                        <a href class="thumbnail"><img src="{{ headline.image }}"></a>
-                    </span>
                     {{headline.description}}
                 </p>
-                <span class="text-muted">{{ headline.datePublished }}</span>
-                <span class="label label-default">{{headline.source}}</span>
+                <span class="text-muted small">{{ headline.datePublished | date:'mediumDate' }} {{ headline.datePublished | date:'shortTime' }}</span>
             </div>
         </div>
     </div>
