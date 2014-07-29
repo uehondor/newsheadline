@@ -34,7 +34,7 @@ module.exports = (grunt) ->
         port: 3000
       dev:
         options:
-          script: 'server.js'
+          script: 'bin/server.js'
 
   @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-express-server'
