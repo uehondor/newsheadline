@@ -26,10 +26,16 @@
     "angular": "./bower_components/angular/angular.js"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest"
   },
   "engines": {
     "node": ">= 10.26"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "jest": {
+    "scriptPreprocessor": "app/config/preprocessor.js",
+    "testFileExtensions": ["coffee", "js"],
+    "testDirectoryName": "tests"
+  }
 }

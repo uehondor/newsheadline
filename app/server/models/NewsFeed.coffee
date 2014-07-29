@@ -3,13 +3,13 @@ FeedParser = require 'feedparser'
 http = require 'http'
 
 class NewsFeed
-  constructor: (@name)->
-  list: (url, maxFeeds)->
+  constructor: (@name) ->
+  list: (url, maxFeeds) ->
     feedMeta = null
     items = []
     deferred = q.defer()
 
-    http.get url, (res)=>
+    http.get url, (res) =>
       res.pipe new FeedParser {}
 
       .on 'meta', (meta)->
@@ -37,6 +37,9 @@ class NewsFeed
           name: @name,
           website: feedMeta.link
           items: items
+
+      .on 'error', (error) ->
+        deferred.reject error
 
     return deferred.promise
 
