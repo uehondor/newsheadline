@@ -1,0 +1,14 @@
+{
+    "_links": {
+        "self": {
+            "href": "/healines"
+        }
+    },
+    "_embedded": {
+        "headlines": [
+            {% for headline in headlines %}
+            {% include './headline.json' %}{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ]
+    }
+}

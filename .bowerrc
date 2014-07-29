@@ -1,5 +1,5 @@
 {
-  "directory" : "frontend/vendor",
+  "directory" : "bower_components",
   "tmp": "/tmp/bower",
   "interactive": false
 }

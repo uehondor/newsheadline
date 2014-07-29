@@ -1,1 +1,1 @@
-require('../.app/app')
+require('../dist/app/app')
