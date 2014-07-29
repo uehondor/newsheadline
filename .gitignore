@@ -1,4 +1,5 @@
 .app
+.vagrant
 node_modules
 frontend/vendor
 public/js/app.js

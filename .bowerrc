@@ -1,4 +1,5 @@
 {
   "directory" : "frontend/vendor",
-  "tmp": "/tmp/bower"
+  "tmp": "/tmp/bower",
+  "interactive": false
 }
