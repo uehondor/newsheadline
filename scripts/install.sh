@@ -8,3 +8,8 @@ sudo apt-get install git-core -y
 sudo apt-get install nodejs -y
 
 sudo npm install bower -g
+
+servicePath="/etc/init/newsheadline.conf"
+if [ ! -f "$servicePath" ]; then
+  cp /srv/newsheadline/scripts/newsheadline.conf $servicePath
+fi
