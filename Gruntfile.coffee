@@ -38,6 +38,9 @@ module.exports = (grunt) ->
       dev:
         options:
           script: 'bin/server.js'
+    karma:
+      unit:
+        configFile: 'karma.conf.js'
 
   @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-express-server'
@@ -45,8 +48,10 @@ module.exports = (grunt) ->
   @loadNpmTasks 'grunt-contrib-copy'
   @loadNpmTasks 'grunt-contrib-less'
   @loadNpmTasks 'grunt-browserify'
+  @loadNpmTasks 'grunt-karma'
 
   # Default task(s).
   @registerTask 'default', ['build', 'serve']
+  @registerTask 'tests', ['karma:unit']
   @registerTask 'serve', ['express:dev']
   @registerTask 'build', ['clean', 'coffee', 'less', 'browserify:dev', 'copy:views']
