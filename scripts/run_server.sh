@@ -1,8 +1,15 @@
 #!/bin/bash
 
-cd /srv/newsheadline
+sudo apt-get install software-properties-common -y
+sudo add-apt-repository ppa:chris-lea/node.js -y
+sudo apt-get update
 
-npm install
-bower install
+sudo apt-get install git-core -y
+sudo apt-get install nodejs -y
+
+servicePath="/etc/init/newsheadline.conf"
+if [ ! -f "$servicePath" ]; then
+  cp /srv/newsheadline/scripts/newsheadline.conf $servicePath
+fi
 
 sudo service newsheadline start

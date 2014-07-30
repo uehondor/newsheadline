@@ -20,6 +20,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "512", "--natdnshostresolver1", "on"]
   end
 
-  config.vm.provision "shell", path: "scripts/install.sh"
-  config.vm.provision "shell", path: "scripts/run_server.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/run_server.sh"
 end
